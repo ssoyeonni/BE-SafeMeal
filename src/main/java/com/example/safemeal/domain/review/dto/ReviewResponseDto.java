@@ -11,15 +11,15 @@ import lombok.*;
 public class ReviewResponseDto {
     private Long id;
     private Long recipeId;
+    private String userName;
     private String text;
-    private String date;
 
     public static ReviewResponseDto from(Review entity) {
         return ReviewResponseDto.builder()
                 .id(entity.getTblKey())
-                .text(entity.getText())
-                .date(entity.getDate())
                 .recipeId(entity.getRecipe().getTblKey())
+                .userName(entity.getUserName())
+                .text(entity.getText())
                 .build();
     }
 }

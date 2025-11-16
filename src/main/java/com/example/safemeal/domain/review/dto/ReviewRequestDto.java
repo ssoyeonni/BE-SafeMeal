@@ -17,24 +17,25 @@ public class ReviewRequestDto {
     @NotNull(message = "레시피 ID는 필수입니다.")
     private Long recipeId;
 
+    @NotBlank(message = "작성자명은 필수입니다.")
+    @Size(max = 50, message = "작성자명은 100자 이내여야 합니다.")
+    private String userName;
+
     @NotBlank(message = "리뷰 내용은 필수입니다.")
     @Size(max = 1000)
     private String text;
 
-    @NotBlank(message = "작성일자는 필수입니다. (yyyyMMddHHmmssfff)")
-    @Size(max = 17)
-    private String date;
 
     public Review toEntity(Recipe recipe) {
         return Review.builder()
+                .userName(this.userName)
                 .text(this.text)
-                .date(this.date)
                 .recipe(recipe)
                 .build();
     }
 
     public void updateEntity(Review review) {
+        review.setText(this.userName);
         review.setText(this.text);
-        review.setDate(this.date);
     }
 }

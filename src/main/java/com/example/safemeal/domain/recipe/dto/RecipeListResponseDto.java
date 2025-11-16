@@ -12,7 +12,7 @@ public class RecipeListResponseDto {
     private Long id;
     private String name;
     private String category;
-    private String kcal;
+    private Integer kcal;
     private String imgSmall;
 
     public static RecipeListResponseDto from(Recipe recipe) {

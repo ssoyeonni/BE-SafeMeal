@@ -25,6 +25,6 @@ public class RecipeIngredient extends BaseEntity {
     @Column(name = "NAME", length = 100, nullable = false)
     private String name;
 
-    @Column(name = "LINK_URL", length = 300)
+    @Column(name = "LINK_URL", length = 500)
     private String linkUrl;
 }

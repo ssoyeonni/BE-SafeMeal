@@ -19,16 +19,13 @@ public class Review extends BaseEntity {
     @Column(name = "TBLKEY", nullable = false)
     private Long tblKey;
 
-//    @Column(name = "USER_NAME", length = 50, nullable = false)
-//    private String userName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RECIPE_ID", nullable = false)
+    private Recipe recipe;
+
+    @Column(name = "USER_NAME", length = 50, unique = true)
+    private String userName;
 
     @Column(name = "TEXT", length = 1000, nullable = false)
     private String text;
-
-    @Column(name = "DATE", length = 17, nullable = false)
-    private String date;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RECIPE_ID")
-    private Recipe recipe;
 }
