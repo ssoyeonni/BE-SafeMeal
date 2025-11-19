@@ -18,7 +18,7 @@ public class ReviewRequestDto {
     private Long recipeId;
 
     @NotBlank(message = "작성자명은 필수입니다.")
-    @Size(max = 50, message = "작성자명은 100자 이내여야 합니다.")
+    @Size(max = 50, message = "작성자명은 50자 이내여야 합니다.")
     private String userName;
 
     @NotBlank(message = "리뷰 내용은 필수입니다.")
@@ -35,7 +35,6 @@ public class ReviewRequestDto {
     }
 
     public void updateEntity(Review review) {
-        review.setText(this.userName);
         review.setText(this.text);
     }
 }
